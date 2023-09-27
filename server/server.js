@@ -1,4 +1,5 @@
 import express from 'express';
+import './config/dotenv.js';
 import giftsRouter from './routes/gifts.js'; // why does the giftsRouter name work even though the default export is router?  Answer: The default export is router, but we can name the import anything we want.  We are naming the import giftsRouter because it is the router for the gifts resource.  We could name the import anything we want, such as router, gifts, or anything else.  The name of the import does not have to match the name of the export.
 
 const app = express();

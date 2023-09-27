@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';    // Node.js module for working with file and directory paths
 import { fileURLToPath } from 'url'; // The fileURLToPath() method of the URL module converts a file URL to a file path
-import giftData from '../data/gifts.js';
+import GiftsController from '../controllers/gifts.js';
 
 // The __dirname and __filename variables are not available in ES6 modules.  They are only available in CommonJS modules. 
 // We need to use the __dirname and __filename variables to get the absolute path of the current directory and filename.
@@ -15,12 +15,9 @@ const __dirname = path.dirname(__filename); // The __dirname represents the name
 const router = express.Router();
 
 // endpoint: /gifts
-router.get('/', (req, res) => {
-    res.status(200).json(giftData);
-}
-);
+router.get('/', GiftsController.getGifts);
 
-// endpoint: /api/gifts/:id
+// endpoint: /gifts/:id
 router.get('/:giftId', (req, res) => {
     res.status(200).sendFile(path.resolve(__dirname, '../../client/public/gift.html'));
 }
