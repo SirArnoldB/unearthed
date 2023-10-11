@@ -9,6 +9,9 @@ const app = express();
 // Set up the cors middleware
 app.use(cors());
 
+// Set up the express middleware to parse incoming requests with JSON payloads
+app.use(express.json());
+
 // add the giftsRouter middleware to the application
 app.use('/gifts', giftsRouter);
 
